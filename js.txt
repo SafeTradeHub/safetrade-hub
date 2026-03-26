@@ -1,0 +1,27 @@
+function flashBuy() {
+    let amount = document.getElementById("flashAmount").value;
+
+    if (amount === "" || amount <= 0) {
+        alert("Enter valid amount");
+        return;
+    }
+
+    sendToWhatsApp("Flash Buy", amount);
+}
+
+function p2pTrade() {
+    let amount = document.getElementById("p2pAmount").value;
+    let type = document.getElementById("type").value;
+
+    if (amount === "" || amount <= 0) {
+        alert("Enter valid amount");
+        return;
+    }
+
+    sendToWhatsApp(type, amount);
+}
+
+function sendToWhatsApp(type, amount) {
+    let msg = `New Order:%0AType: ${type}%0AAmount: ${amount}`;
+    window.open(`https://wa.me/923446692639?text=${msg}`, "_blank");
+}
